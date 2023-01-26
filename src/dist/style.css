@@ -1,0 +1,246 @@
+:root {
+  --clr-theme-bg-main: hsl(222deg, 26%, 31%);
+  --clr-theme-bg-key: hsl(223deg, 31%, 20%);
+  --clr-theme-bg-screen: hsl(224deg, 36%, 15%);
+  --clr-theme-key-alt: hsl(225deg, 21%, 49%);
+  --clr-theme-alt-shadow: hsl(224deg, 28%, 35%);
+  --clr-theme-toggle: hsl(6deg, 63%, 50%);
+  --clr-theme-toggle-shadow: hsl(6deg, 70%, 34%);
+  --clr-theme-equals: hsl(6deg, 63%, 50%);
+  --clr-theme-equals-shadow: hsl(6deg, 70%, 34%);
+  --clr-theme-buttons: hsl(0deg, 0%, 90%);
+  --clr-theme-buttons-shadow: hsl(0deg, 0%, 90%);
+  --clr-theme-text: hsl(221deg, 14%, 31%);
+  --clr-theme-text-alt: hsl(0deg, 0%, 100%);
+}
+
+/* BOILERPLATE */
+/* Set core root defaults */
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+  height: 100%;
+}
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  vertical-align: baseline;
+}
+
+/* Set core body defaults */
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Remove default margin */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul,
+ol,
+summary {
+  list-style: none;
+  margin: 0;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+}
+
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+@font-face {
+  font-family: "League Spartan";
+  src: url("../assets/fonts/LeagueSpartan-Bold.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  font-family: "League Spartan";
+  font-size: clamp(1.5rem, 0.7924528302rem + 3.0188679245vw, 2rem);
+}
+
+/* TYPOGRAPHY RESET */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* A elements that don't have a class get default styles */
+a, a:focus, a:visited {
+  text-decoration: none;
+}
+
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+button {
+  border-radius: 0.375rem;
+  padding-block: 0.375rem 0;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}
+
+button[data-key-numbers],
+button[data-key-operator] {
+  background-color: var(--clr-theme-buttons);
+  color: var(--clr-theme-text);
+}
+
+button[data-key-del],
+button[data-key-reset] {
+  background-color: var(--clr-theme-key-alt);
+}
+
+button[data-key-equals] {
+  background-color: var(--clr-theme-equals);
+}
+
+button[data-key-equals],
+button[data-key-del],
+button[data-key-reset] {
+  color: var(--clr-theme-text-alt);
+}
+
+footer {
+  margin-top: auto;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228deg, 45%, 44%);
+}
+
+body {
+  background-color: var(--clr-theme-bg-main);
+}
+
+.calculator {
+  width: min(100% - 3rem, 33.75rem);
+  margin-inline: auto;
+}
+.calculator--display {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.calculator__head {
+  display: flex;
+  justify-content: space-between;
+}
+.calculator__display {
+  background-color: var(--clr-theme-bg-screen);
+  padding: 2rem;
+}
+.calculator__display p {
+  color: white;
+}
+.calculator__key {
+  background-color: var(--clr-theme-bg-key);
+  padding: clamp(1.5rem, 0.7924528302rem + 3.0188679245vw, 2rem);
+}
+.calculator__key--display {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.border-radius, .calculator__display, .calculator__key {
+  border-radius: 0.75rem;
+}
+
+.col-span-2 {
+  grid-column: span 2;
+}/*# sourceMappingURL=style.css.map */

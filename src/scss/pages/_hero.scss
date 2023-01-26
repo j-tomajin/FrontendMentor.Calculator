@@ -1,0 +1,53 @@
+@use '../utilities/' as *;
+
+body {
+    background-color: var(--clr-theme-bg-main);
+}
+
+.calculator {
+    width: min(calc(100% - 3rem), rem(540));
+    margin-inline: auto;
+
+    &--display {
+        display: flex;
+        flex-direction: column;
+        gap: rem(32);
+    }
+
+
+
+    &__head {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__display {
+        @extend .border-radius;
+        background-color: var(--clr-theme-bg-screen);
+        padding: rem(32);
+
+        p {
+            color: white
+        }
+    }
+
+    &__key {
+        @extend .border-radius;
+        background-color: var(--clr-theme-bg-key);
+        padding: clampf(24, 640, 32);
+
+        &--display {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: rem(16);
+        }
+    }
+}
+
+.border-radius {
+    border-radius: rem(12);
+}
+
+.col-span-2 {
+    grid-column: span 2;
+}
